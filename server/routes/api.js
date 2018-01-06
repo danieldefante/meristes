@@ -42,7 +42,11 @@ router.get('/users', (req, res) => {
     //         });
     // });
 
-    response.data = [{nome: 'daniel', sobrenome:'defante'}, {nome: 'aimee', sobrenome:'secchi'}];
+    response.data = [
+        { nome: 'daniel', sobrenome: 'defante' },
+        { nome: 'aimee', sobrenome: 'secchi' },
+        { nome: 'maria', sobrenome: 'leticia' },        
+    ];
     res.json(response);
     // return 
 });
