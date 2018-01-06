@@ -1,14 +1,10 @@
 {
   "name": "meristes",
-  "version": "0.0.0",
-  "license": "MIT",
+  "version": "1.0.0",
+  "license": "ISC",
+  "main": "app.js",
   "scripts": {
-    "ng": "ng",
-    "start": "node app",
-    "build": "ng build --prod",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "node app"
   },
   "private": true,
   "dependencies": {
@@ -26,7 +22,10 @@
     "express": "^4.16.2",
     "npm": "^5.0.0",
     "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.14",
+    "check-node-version": "^2.1.0",
+    "cluster": "^0.7.7",
+    "os": "^0.1.1"
   },
   "devDependencies": {
     "@angular/cli": "1.6.3",
