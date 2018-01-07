@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
 const app = express();
+//
+const fs = require("fs");
 
 // API file for interacting with MongoDB
 const api = require('./server/routes/api');
@@ -32,4 +34,10 @@ server.listen(port, () => {
 
     console.log(`Diretorio:${__dirname}`);
     console.log(`Rodando na porta:${port}`)
+});
+
+const directoryExists = require('directory-exists');
+directoryExists(__dirname+'/dist', function(result) {
+  console.log('existe pasta dist', result);
+
 });
