@@ -1,0 +1,25 @@
+<mat-input-container fxFlex="100%" 
+  [formGroup]="formgroup">
+  <input matInput 
+    formControlName={{name}} 
+    name={{name}}
+    placeholder={{label}} 
+    [(ngModel)]="model" 
+    (change)="changeValue(model)"
+    pattern="{{validatorFields.regex[pattern]}}"
+    maxlength="{{maxLength}}">
+  <mat-icon matSuffix>
+    {{icon}}
+  </mat-icon>
+  <mat-hint *ngIf="maxLength" align="end">
+    {{model ? model.length : 0}} / {{maxLength}}
+  </mat-hint>
+  <mat-error>
+    <div *ngIf="formgroup.controls[name].errors?.required">
+      {{validatorFields.msg.fieldObrigatorio}}
+    </div>
+    <div *ngIf="formgroup.controls[name].errors?.pattern">
+      {{validatorFields.msg[pattern]}}
+    </div>
+  </mat-error>
+</mat-input-container>

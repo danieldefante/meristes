@@ -1,0 +1,14 @@
+mat-list{
+    cursor: pointer;   
+}
+
+mat-list-item:hover{
+    background-color: rgba(0,0,0, .087);
+}
+
+.viewPessoa {
+    overflow-y: scroll; 
+    height: 200px;
+    width: 300px;
+}
+ 

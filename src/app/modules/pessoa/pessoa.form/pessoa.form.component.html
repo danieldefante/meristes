@@ -1,0 +1,180 @@
+<p style="padding-left: 5%"><b>Cadastro Pessoa</b></p>
+<form [formGroup]="formValidations" (ngSubmit)= "save()">
+  <app-row>
+    <app-input fxFlex="25%"
+      [model]="pessoa.nome"
+      (bind)="pessoa.nome = $event"
+      [name]="'nome'" 
+      [label]="'Nome'" 
+      [icon]="'account_circle'"
+      [maxLength]="50"
+      [formgroup]="formValidations"
+      [pattern]="'words'">
+    </app-input>
+    <app-input fxFlex="45%"
+      [model]="pessoa.sobrenome"
+      (bind)="pessoa.sobrenome = $event"
+      [name]="'sobrenome'" 
+      [label]="'Sobrenome'" 
+      [icon]="'account_circle'"
+      [maxLength]="50"
+      [formgroup]="formValidations"
+      [pattern]="'wordsSpace'">
+    </app-input>
+    <app-input fxFlex="20%"
+      [model]="pessoa.apelido"
+      (bind)="pessoa.apelido = $event"
+      [name]="'apelido'" 
+      [label]="'Apelido'" 
+      [icon]="'record_voice_over'"
+      [maxLength]="40"
+      [formgroup]="formValidations">
+    </app-input>
+  </app-row>
+  <app-row>
+    <app-input-date fxFlex="15%"
+      [model]="pessoa.dataNascimento"
+      (bind)="pessoa.dataNascimento = $event"
+      [name]="'dataNascimento'" 
+      [label]="'Data Nascimento'"
+      [formgroup]="formValidations">
+    </app-input-date>
+    <app-input-mask fxFlex="14%"
+      [model]="pessoa.rg"
+      (bind)="pessoa.rg = $event"
+      [name]="'rg'" 
+      [label]="'RG'" 
+      [icon]="'assignment_ind'"
+      [formgroup]="formValidations"
+      [type]="'rgMaior'">
+    </app-input-mask>
+    <app-input-mask fxFlex="14%"
+      [model]="pessoa.cpf"
+      (bind)="pessoa.cpf = $event"
+      [name]="'cpf'" 
+      [label]="'CPF'" 
+      [icon]="'chrome_reader_mode'"
+      [formgroup]="formValidations"
+      [type]="'cpf'">
+    </app-input-mask>
+    <app-input-mask fxFlex="14%"
+      [model]="pessoa.contato.celular"
+      (bind)="pessoa.contato.celular = $event"
+      [name]="'celular'" 
+      [label]="'Celular'" 
+      [icon]="'phone_iphone'"
+      [formgroup]="formValidations"
+      [type]="'cell'">
+    </app-input-mask>
+    <app-input-mask fxFlex="14%"
+      [model]="pessoa.contato.celularTwo"
+      (bind)="pessoa.contato.celularTwo = $event"
+      [name]="'celularTwo'" 
+      [label]="'Celular 2'" 
+      [icon]="'phone_iphone'"
+      [formgroup]="formValidations"
+      [type]="'cell'">
+    </app-input-mask>
+    <app-input-mask fxFlex="14%"
+      [model]="pessoa.contato.telefone"
+      (bind)="pessoa.contato.telefone = $event"
+      [name]="'telefone'" 
+      [label]="'Telefone'" 
+      [icon]="'call'"
+      [formgroup]="formValidations"
+      [type]="'telephone'">
+    </app-input-mask>
+  </app-row>
+  <app-row>
+    <app-input fxFlex="50%"
+      [model]="pessoa.endereco.rua"
+      (bind)="pessoa.endereco.rua = $event"
+      [name]="'rua'" 
+      [label]="'Rua'" 
+      [icon]="'location_on'"
+      [maxLength]="50"
+      [formgroup]="formValidations">
+    </app-input>
+    <app-input fxFlex="15%"
+      [model]="pessoa.endereco.numero"
+      (bind)="pessoa.endereco.numero = $event"
+      [name]="'numero'" 
+      [label]="'Número'" 
+      [icon]="'filter_9_plus'"
+      [maxLength]="20"
+      [formgroup]="formValidations"
+      [fontCase]="'null'">
+    </app-input>
+    <app-input fxFlex="25%"
+      [model]="pessoa.endereco.bairro"
+      (bind)="pessoa.endereco.bairro = $event"
+      [name]="'bairro'" 
+      [label]="'Bairro'" 
+      [icon]="'location_city'"
+      [maxLength]="50"
+      [formgroup]="formValidations">
+    </app-input>
+  </app-row>
+  <app-row>
+    <app-input fxFlex="50%"
+      [model]="pessoa.contato.email"
+      (bind)="pessoa.contato.email = $event"
+      [name]="'email'" 
+      [label]="'Email'" 
+      [icon]="'mail'"
+      [maxLength]="50"
+      [formgroup]="formValidations"
+      [pattern]="'email'"
+      [fontCase]="'lower'">
+    </app-input>
+    <app-input fxFlex="50%"
+      [model]="pessoa.contato.urlRedeSocial"
+      (bind)="pessoa.contato.urlRedeSocial = $event"
+      [name]="'urlRedeSocial'" 
+      [label]="'Página Rede Social'" 
+      [icon]="'public'"
+      [maxLength]="500"
+      [formgroup]="formValidations">
+    </app-input>
+  </app-row> 
+
+  <app-row>
+    <div fxFlex="20%">
+      <img id="imageid" 
+        src="{{pessoa.pessoaFile?.buffer}}" 
+        [hidden]="!pessoa?.pessoaFile" 
+        height="200" 
+        width="200">
+      <button mat-raised-button
+        color="primary" 
+        type="button" 
+        (click)="openImage()" 
+        style="width: 200px;" 
+        [disabled]="!pessoa.idPessoa">Carregar uma imagem
+      </button>
+    </div>
+    <div fxFlex="70%"></div>
+  </app-row> 
+
+  <hr>
+    
+  <app-row>
+    <div fxFlex="70%"></div>
+    <div fxFlex="10%">  
+      <button mat-raised-button 
+        color="primary" 
+        [disabled]="isValidateForm() "
+        type="submit">Salvar
+      </button>
+    </div>
+    <div fxFlex="10%">  
+      <button type="button" 
+        mat-raised-button 
+        color="warn" 
+        (click)="back()">Voltar 
+      </button>
+    </div>
+  </app-row>
+
+</form>
+<simple-notifications [options]="optionsMeristesAlert"></simple-notifications>

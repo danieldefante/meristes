@@ -3,15 +3,13 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
 const app = express();
-//
-const fs = require("fs");
 
 // API file for interacting with MongoDB
 const api = require('./server/routes/api');
 
 // Parsers
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Angular DIST output folder
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -31,13 +29,5 @@ app.set('port', port);
 const server = http.createServer(app);
 
 server.listen(port, () => {
-
-    console.log(`Diretorio:${__dirname}`);
-    console.log(`Rodando na porta:${port}`)
-});
-
-const directoryExists = require('directory-exists');
-directoryExists(__dirname+'/dist', function(result) {
-  console.log('existe pasta dist', result);
-
+    console.log(`Servidor rodando na porta: ${port}`);
 });

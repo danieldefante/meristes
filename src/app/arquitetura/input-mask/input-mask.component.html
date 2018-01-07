@@ -1,0 +1,19 @@
+<mat-input-container fxFlex="100%" [formGroup]="formgroup">
+  <input matInput 
+    formControlName="{{name}}"
+    name="{{name}}" 
+    placeholder={{label}} 
+    [(ngModel)]="model"
+    [textMask]="{mask: masks[type]}"
+    (change)="changeValue(model)"
+    pattern="{{validatorFields.regex[type]}}">
+  <mat-icon matSuffix>{{icon}}</mat-icon>
+  <mat-error>
+    <div *ngIf="formgroup.controls[name].errors?.required">
+        {{validatorFields.msg.fieldObrigatorio}}
+    </div>
+    <div *ngIf="formgroup.controls[name].errors?.pattern">
+      {{validatorFields.msg[type]}}
+    </div>
+  </mat-error>
+</mat-input-container>

@@ -1,0 +1,31 @@
+<mat-list>
+  <mat-list-item *ngFor="let ministerio of ministerios" layout="row">
+    <mat-icon mat-list-icon (click)="openDialog(ministerio)" >public</mat-icon>
+    <h4 mat-line (click)="openDialog(ministerio)">
+      {{ministerio.nome}}
+    </h4>
+    <p mat-line (click)="openDialog(ministerio)"> {{ministerio.descricao}} </p>
+
+    <span matTooltip="Vincular Pessoas">
+      <button mat-icon-button>
+        <mat-icon>link</mat-icon>
+      </button>
+    </span>
+    <span matTooltip="Editar"> 
+      <button mat-icon-button (click)="edit(ministerio)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </span>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+</mat-list>
+
+<mat-paginator [length]=paged.sizeDB
+  [pageSize]=paged.size
+  [pageSizeOptions]=paged.filters
+  (page)="onPaginateChange($event)">
+</mat-paginator>
+
+<simple-notifications [options]="optionsMeristesAlert"></simple-notifications>

@@ -1,0 +1,23 @@
+<mat-input-container fxFlex="100%" 
+  [formGroup]="formgroup">
+  <input matInput 
+    name={{name}}
+    formControlName={{name}} 
+    [matDatepicker]="picker" 
+    placeholder={{label}}
+    [(ngModel)]="model" 
+    (dateChange)="changeValue($event)"
+    (keyup)="changeKeyUp($event)">
+  <mat-error>
+      <div *ngIf="formgroup.controls[name].errors?.required && !formgroup.controls[name].errors?.matDatepickerParse">
+        {{validatorFields.msg.fieldObrigatorio}}
+      </div>
+      <div *ngIf="formgroup.controls[name].errors?.matDatepickerParse">
+        {{validatorFields.msg.date}}
+      </div>
+    </mat-error>
+  <mat-datepicker-toggle matSuffix 
+    [for]="picker">
+  </mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-input-container>

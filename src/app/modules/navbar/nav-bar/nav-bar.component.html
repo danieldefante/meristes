@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <div>
+    Meristes
+  </div>
+
+  <div class="btnMenu">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+  </button>
+
+  </div>
+</mat-toolbar>
+
+<app-tool-bar></app-tool-bar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/pessoa/add">
+    <mat-icon>person_add</mat-icon> 
+    <span>Novo Membro</span>
+  </button>
+   <button mat-menu-item routerLink="/ministerio/add">
+    <mat-icon>add_cicle</mat-icon>
+    <span>Novo Ministério</span>
+  </button>
+   <button mat-menu-item>
+    <mat-icon>account_circle</mat-icon>
+    <span>Conta</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    <span>Configurações</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>info</mat-icon>
+    <span>Sobre</span>
+  </button>

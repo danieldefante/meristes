@@ -1,0 +1,49 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+        <mat-icon>public</mat-icon>
+    </div>
+    <mat-card-title><b>{{ministerio.nome}}</b></mat-card-title>
+    <mat-card-subtitle>{{ministerio.descricao}}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+      <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+        <div fxFlex="100%" class="viewMinisterio">
+          <p [hidden]="!ministerio.visao" class="paragraph-break"><b>Visão:</b> {{ministerio.visao}}</p>
+          <p [hidden]="!ministerio.normas" class="paragraph-break"><b>Normas:</b> {{ministerio.normas}}</p>
+          <p [hidden]="!ministerio.observacoes" class="paragraph-break" ><b>Observações:</b> {{ministerio.observacoes}}</p>
+        </div>
+      </div>
+      <hr>
+      <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+          <div fxFlex="50%">
+            <p><b>Subgrupos</b></p>
+              <ul>
+                <li *ngFor="let grupo of ministerio.grupos">
+                  <p class="paragraph-break">{{ grupo.nome }}</p>
+                </li>
+              </ul>
+          </div>
+          <div fxFlex="50%">
+              <p><b>Funções</b></p>
+              <ul>
+                <li *ngFor="let classificacaoMembro of ministerio.classificacaoMembros">
+                  <p class="paragraph-break">{{ classificacaoMembro.descricao }}</p>
+                </li>
+              </ul>
+          </div>
+      </div>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+      <!-- <button mat-icon-button (click)="remove(1)">
+        <mat-icon class="mat-24">delete_forever</mat-icon>
+      </button>  -->
+
+
+    <button mat-button mat-raised-button color="primary" mat-dialog-close>FECHAR</button>
+
+  </mat-card-actions>
+</mat-card>

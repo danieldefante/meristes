@@ -1,0 +1,78 @@
+<p style="padding-left: 5%"><b>Cadastro Ministério</b></p>
+<form [formGroup]="formValidations" (ngSubmit)= "save()">
+  <app-row>
+    <app-input fxFlex="25%"
+      [model]="ministerio.nome"
+      (bind)="ministerio.nome = $event"
+      [name]="'nome'" 
+      [label]="'Nome'" 
+      [icon]="'account_circle'"
+      [maxLength]="50"
+      [formgroup]="formValidations"
+      [pattern]="'wordsSpace'">
+    </app-input>
+    <app-input fxFlex="45%"
+      [model]="ministerio.descricao"
+      (bind)="ministerio.descricao = $event"
+      [name]="'descricao'" 
+      [label]="'Descrição'" 
+      [icon]="'account_circle'"
+      [maxLength]="50"
+      [formgroup]="formValidations"
+      [pattern]="'wordsSpace'">
+    </app-input>
+    <app-input fxFlex="20%"
+      [model]="ministerio.visao"
+      (bind)="ministerio.visao = $event"
+      [name]="'visao'" 
+      [label]="'Visão'" 
+      [icon]="'record_voice_over'"
+      [maxLength]="40"
+      [formgroup]="formValidations">
+    </app-input>
+  </app-row>
+  <app-row>
+    <app-input fxFlex="25%"
+      [model]="ministerio.normas"
+      (bind)="ministerio.normas = $event"
+      [name]="'normas'" 
+      [label]="'Normas'" 
+      [icon]="'account_circle'"
+      [maxLength]="50"
+      [formgroup]="formValidations"
+      [pattern]="'wordsSpace'">
+    </app-input>
+    <app-input fxFlex="45%"
+      [model]="ministerio.observacoes"
+      (bind)="ministerio.observacoes = $event"
+      [name]="'observacoes'" 
+      [label]="'Observações'" 
+      [icon]="'account_circle'"
+      [maxLength]="50"
+      [formgroup]="formValidations"
+      [pattern]="'wordsSpace'">
+    </app-input>
+  </app-row>
+
+  <hr>
+    
+  <app-row>
+    <div fxFlex="70%"></div>
+    <div fxFlex="10%">  
+      <button mat-raised-button 
+        color="primary" 
+        [disabled]="isValidateForm() "
+        type="submit">Salvar
+      </button>
+    </div>
+    <div fxFlex="10%">  
+      <button type="button" 
+        mat-raised-button 
+        color="warn" 
+        (click)="back()">Voltar 
+      </button>
+    </div>
+  </app-row>
+
+</form>
+<simple-notifications [options]="optionsMeristesAlert"></simple-notifications>

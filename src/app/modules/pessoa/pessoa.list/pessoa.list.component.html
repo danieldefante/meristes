@@ -1,0 +1,35 @@
+<mat-list>
+
+  <mat-list-item *ngFor="let pessoa of pessoas" layout="row">
+    <img matListAvatar src="{{pessoa.imagem}}" alt="Error" (click)="openDialog(pessoa)">
+    <h4 mat-line (click)="openDialog(pessoa)">
+      {{pessoa.nome}}
+      <span [hidden]="!pessoa.apelido">
+        <i> - {{pessoa.apelido}} </i>
+      </span>
+    </h4>
+    <p mat-line (click)="openDialog(pessoa)"> {{pessoa.sobrenome}} </p>
+
+    <span matTooltip="Vincular Ministério">
+      <button mat-icon-button>
+        <mat-icon>link</mat-icon>
+      </button>
+    </span>
+    <span matTooltip="Editar"> 
+      <button mat-icon-button (click)="edit(pessoa)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </span>
+
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+</mat-list>
+
+<mat-paginator [length]=paged.sizeDB
+  [pageSize]=paged.size
+  [pageSizeOptions]=paged.filters
+  (page)="onPaginateChange($event)">
+</mat-paginator>
+
+<simple-notifications [options]="optionsMeristesAlert"></simple-notifications>
