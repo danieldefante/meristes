@@ -5,7 +5,7 @@
   "author": "Daniel Defante",
   "main": "server.js",
   "scripts": {
-    "start": "node server"
+    "start": "ng build && node server"
   },
   "private": true,
   "dependencies": {
