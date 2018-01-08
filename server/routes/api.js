@@ -29,6 +29,7 @@ let response = {
 
 // Get users
 router.get('/users', (req, res) => {
+    
     // connection((db) => {
     //     db.collection('users')
     //         .find()
@@ -42,11 +43,13 @@ router.get('/users', (req, res) => {
     //         });
     // });
 
-    response.data = [
+
+    response.data = 
+     [
         { nome: 'daniel', sobrenome: 'defante' },
         { nome: 'aimee', sobrenome: 'secchi' },
-        { nome: 'maria', sobrenome: 'leticia' },        
-    ];
+         { nome: 'maria', sobrenome: 'leticia' },        
+     ];
     res.json(response);
     // return 
 });
