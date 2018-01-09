@@ -41,7 +41,7 @@ export class InputDateComponent implements OnInit , OnChanges {
     }
   }
   
-  private changeValue(ev) {
+  public changeValue(ev) {
     let value: any = this.model;
     if(value) {
       this.bind.emit(value._d);
@@ -50,7 +50,7 @@ export class InputDateComponent implements OnInit , OnChanges {
     }
   }
 
-  private changeKeyUp(ev) {
+  public changeKeyUp(ev) {
     this.addMask(ev);
   }
 
@@ -80,7 +80,7 @@ export class InputDateComponent implements OnInit , OnChanges {
     }
   }
 
-  private setModel(day: number, month: number, year: number) {
-    this.model = new Date(year, month, day);
-  }
+  // private setModel(day: number, month: number, year: number) {
+  //   this.model = new Date(year, month, day);
+  // }
 }

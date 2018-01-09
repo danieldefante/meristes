@@ -1,5 +1,9 @@
 const express = require('express');
 const router = express.Router();
+
+
+const ApiRoutes = require('./apiRoutes.ts');
+
 // const MongoClient = require('mongodb').MongoClient;
 // const ObjectID = require('mongodb').ObjectID;
 
@@ -42,14 +46,8 @@ router.get('/users', (req, res) => {
     //             sendError(err, res);
     //         });
     // });
-
-
-    response.data = 
-     [
-        { nome: 'daniel', sobrenome: 'defante' },
-        { nome: 'aimee', sobrenome: 'secchi' },
-         { nome: 'maria', sobrenome: 'leticia' },        
-     ];
+    let apiRoutes = new ApiRoutes(); 
+    response.data = apiRoutes.diag();
     res.json(response);
     // return 
 });

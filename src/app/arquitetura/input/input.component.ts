@@ -21,7 +21,7 @@ export class InputComponent implements OnInit {
   @Input() change: Function;
   @Output() bind: EventEmitter<string> = new EventEmitter<string>();
 
-  private validatorFields: ValidatorFields = new ValidatorFields();
+  public validatorFields: ValidatorFields = new ValidatorFields();
 
   constructor() {
   }
@@ -30,7 +30,7 @@ export class InputComponent implements OnInit {
     this.verificarRequired();
   }
 
-  private changeValue(value: string) {
+  public changeValue(value: string) {
     if (value) {
       value = this.executeFontCase(value);
 

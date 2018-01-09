@@ -26,10 +26,10 @@ import { ValidatorFields } from './../../../arquitetura/commun/validatorFields';
 })
 export class PessoaFormComponent extends CommunComponent implements OnInit {
 
-  private pessoa: Pessoa = new Pessoa();
+  public pessoa: Pessoa = new Pessoa();
   private validatorFields: ValidatorFields = new ValidatorFields();
   private pessoaValidator: PessoaValidator = new PessoaValidator();
-  private formValidations: FormGroup = this.pessoaValidator.validate(this.pessoa, this.formBuilder);
+  public formValidations: FormGroup = this.pessoaValidator.validate(this.pessoa, this.formBuilder);
   private masks: Masks = new Masks;
 
   constructor(private formBuilder: FormBuilder,
@@ -46,7 +46,7 @@ export class PessoaFormComponent extends CommunComponent implements OnInit {
     this.resolveRoute();
   }
 
-  private save() {
+  public save() {
     if (this.formValidations.valid) {
       this.spinner(true);
 
@@ -94,15 +94,15 @@ export class PessoaFormComponent extends CommunComponent implements OnInit {
     return model;
   }
 
-  private isValidateForm(): boolean {
+  public isValidateForm(): boolean {
     return this.formValidations.pristine || this.formValidations.invalid;
   }
 
-  private back() {
+  public back() {
     this.router.navigate(['pessoa']);
   }
 
-  private openImage() {
+  public openImage() {
 
     let dialogRef = this.dialog.open(DialogImagePessoa, {
       data: {
@@ -206,11 +206,11 @@ export class DialogImagePessoa extends CommunComponent {
   ngOnInit() {
   }
 
-  private closeDialog(value) {
+  public closeDialog(value?) {
     this.dialogRef.close(value);
   }
 
-  private fileChangeListener($event) {
+  public fileChangeListener($event) {
     var image: any = new Image();
     var file: File = $event.target.files[0];
     var myReader: FileReader = new FileReader();
@@ -224,7 +224,7 @@ export class DialogImagePessoa extends CommunComponent {
     myReader.readAsDataURL(file);
   }
 
-  private saveImage() {
+  public saveImage() {
     let method = this.dataInit.idPessoaFile ? 'update' : 'save';
     let params = {
       idPessoa: this.dataInit.idPessoa,

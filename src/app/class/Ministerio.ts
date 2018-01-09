@@ -1,11 +1,13 @@
 export class Ministerio {
 
-  idMinisterio: number;
-    bairro: string;
-    cep: string;
-    complemento: string;
-    rua: string;
-    numero: number;
+    idMinisterio: number;
+    nome: string;
+    observacoes: string;
+    normas: string;
+    descricao: string;
+    visao: string;
+    grupos: any[];
+    classificacaoMembros: any[];
 
      constructor() { 
    }

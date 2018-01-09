@@ -19,7 +19,7 @@
           <p [hidden]="!pessoa.contato.email" class="paragraph-break"><b>Email:</b> {{pessoa.contato.email}}</p>
           <p><b>Rua:</b> {{pessoa.endereco.rua +", " + pessoa.endereco.numero}}</p>
           <p><b>Bairro:</b> {{pessoa.endereco.bairro}}</p>
-          <p [hidden]="!pessoa.contato.cep"><b>Cep:</b> {{pessoa.endereco.cep}}</p>
+          <p [hidden]="!pessoa.endereco.cep"><b>Cep:</b> {{pessoa.endereco.cep}}</p>
           <p [hidden]="!pessoa.contato.urlRedeSocial"><b>Página Rede Social:</b><a href="{{pessoa.contato.urlRedeSocial}}" target="_blank"> {{pessoa.contato.urlRedeSocial}}</a></p>
       </div>
     </div>

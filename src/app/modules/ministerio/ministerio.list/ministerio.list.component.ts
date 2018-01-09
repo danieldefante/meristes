@@ -20,8 +20,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class MinisterioListComponent extends CommunComponent implements OnInit {
 
-  private ministerios: any[];
-  private paged: Paged = new Paged();
+  public ministerios: any[];
+  public paged: Paged = new Paged();
 
   constructor(public dialog: MatDialog,
     private ministerioResource: MinisterioResource,
@@ -52,11 +52,11 @@ export class MinisterioListComponent extends CommunComponent implements OnInit {
     );
   }
 
-  private edit(ministerio) {
+  public edit(ministerio) {
     this.router.navigate(['ministerio', ministerio.idMinisterio]);
   }
 
-  private openDialog(ministerioSelected: Ministerio) {
+  public openDialog(ministerioSelected: Ministerio) {
     let dialogRef = this.dialog.open(MinisterioDialogComponent,
       {
         data: {
@@ -70,11 +70,11 @@ export class MinisterioListComponent extends CommunComponent implements OnInit {
 
   }
 
-  private closeModal() {
+  public closeModal() {
     this.dialog.closeAll();
   }
 
-  private onPaginateChange(event) {
+  public onPaginateChange(event) {
     this.paged.size = event.pageSize;
     this.paged.page = event.pageIndex
     this.fill();
@@ -89,7 +89,7 @@ export class MinisterioListComponent extends CommunComponent implements OnInit {
 
 })
 export class MinisterioDialogComponent extends CommunComponent {
-  private ministerio: Ministerio = new Ministerio();
+  public ministerio: Ministerio = new Ministerio();
   constructor(public dialogRef: MatDialogRef<MinisterioDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private ministerioResource: MinisterioResource,
@@ -117,7 +117,7 @@ export class MinisterioDialogComponent extends CommunComponent {
     );
   }
 
-  private closeModal() {
+  public closeModal() {
     this.dialogRef.close({
 
     });

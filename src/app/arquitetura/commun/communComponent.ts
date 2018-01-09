@@ -5,7 +5,7 @@ import { MeristesAlert } from '../alert/meristesAlert';
 export class CommunComponent {
     
     protected meristesAlert: MeristesAlert;
-    protected optionsMeristesAlert;
+    public optionsMeristesAlert;
     protected loaderService: LoaderService = new LoaderService();
     constructor(notificationsService: NotificationsService) {
 

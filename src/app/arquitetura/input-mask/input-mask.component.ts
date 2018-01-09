@@ -25,8 +25,8 @@ export class InputMaskComponent implements OnInit {
   @Input() formgroup: FormGroup;
   @Output() bind: EventEmitter<string> = new EventEmitter<string>();
   
-  private validatorFields: ValidatorFields = new ValidatorFields() ;
-  private masks: Masks = new Masks();
+  public validatorFields: ValidatorFields = new ValidatorFields() ;
+  public masks: Masks = new Masks();
   
   constructor() {
   }
@@ -43,7 +43,7 @@ export class InputMaskComponent implements OnInit {
     }
   }
 
-  private changeValue(value: string) {
+  public changeValue(value: string) {
     this.model = value;
     this.bind.emit(this.model);
   }

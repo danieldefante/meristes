@@ -16,8 +16,8 @@ import { Router } from '@angular/router';
 })
 export class PessoaListComponent extends CommunComponent implements OnInit {
   
-    private pessoas: any[];
-    private paged: Paged = new Paged();
+    public pessoas: any[];
+    public paged: Paged = new Paged();
   
     constructor(public dialog: MatDialog,
       private pessoaResource: PessoaResource,
@@ -49,11 +49,11 @@ export class PessoaListComponent extends CommunComponent implements OnInit {
       );
     }
 
-    private edit(pessoa) {
+    public edit(pessoa) {
       this.router.navigate(['pessoa', pessoa.idPessoa]);
     }
   
-    private openDialog(pessoaSelected: Pessoa) {
+    public openDialog(pessoaSelected: Pessoa) {
       let dialogRef = this.dialog.open(PessoaDialogComponent,
         {
           data: {
@@ -67,11 +67,11 @@ export class PessoaListComponent extends CommunComponent implements OnInit {
   
     }
   
-    private closeModal() {
+    public closeModal() {
       this.dialog.closeAll();
     }
   
-    private onPaginateChange(event) {
+    public onPaginateChange(event) {
       this.paged.size = event.pageSize;
       this.paged.page = event.pageIndex
       this.fill();
@@ -86,7 +86,7 @@ export class PessoaListComponent extends CommunComponent implements OnInit {
   
   })
   export class PessoaDialogComponent extends CommunComponent {
-    private pessoa: Pessoa = new Pessoa();
+    public pessoa: Pessoa = new Pessoa();
     constructor(public dialogRef: MatDialogRef<PessoaDialogComponent>,
       @Inject(MAT_DIALOG_DATA) public data: any,
       private pessoaResource: PessoaResource,
@@ -115,7 +115,7 @@ export class PessoaListComponent extends CommunComponent implements OnInit {
       );
     }
   
-    private closeModal() {
+    public closeModal() {
       this.dialogRef.close({
   
       });

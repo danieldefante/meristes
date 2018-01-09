@@ -5,7 +5,11 @@
   "author": "Daniel Defante Batista Secchi",
   "main": "server.js",
   "scripts": {
-    "start": "ng build && node server"
+    "build": "ng build --prod",
+    "start": "ng build && node server",
+    "dev": "concurrently \"mongod\" \"ng serve --port 3000 -pc proxy.conf.json --open\" \"tsc -w -p server\" \"nodemon dist/server/app.js\"",
+    "prod": "concurrently \"mongod\" \"ng build -aot -prod && tsc -p server && node dist/server/app.js\"",
+    "my": "node server.js"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +31,7 @@
     "angular2-text-mask": "^8.0.4",
     "body-parser": "^1.18.2",
     "class-transformer": "^0.1.8",
+    "concurrently": "^3.5.1",
     "core-js": "^2.4.1",
     "express": "^4.16.2",
     "hammerjs": "^2.0.8",
@@ -34,6 +39,7 @@
     "material-design-icons": "^3.0.1",
     "material-icons": "^0.1.0",
     "moment": "^2.20.1",
+    "morgan": "^1.9.0",
     "multer": "^1.3.0",
     "mysql": "^2.15.0",
     "ng2-img-cropper": "^0.9.0",
@@ -63,7 +69,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "protractor": "~5.1.2",
+    "protractor": "^5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2"
